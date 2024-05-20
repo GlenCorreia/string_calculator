@@ -1,11 +1,17 @@
 class StringCalculator
 
 	def self.add(numbers)
+		output = nil
+
 		if numbers.strip == ""
-			return 0
+			output = 0
+		else
+			output = numbers.to_i
 		end
+		puts output
+		return output
 	end
 
 end
 
-StringCalculator.add("")
+StringCalculator.add("10")
