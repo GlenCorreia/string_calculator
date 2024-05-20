@@ -8,6 +8,7 @@ class StringCalculator
 		elsif numbers.include? ','
 			if numbers.include? "\n"
 				numbers = sanitize_string(numbers) 
+				return if numbers == nil
 			end
 			number_parts = numbers.split(',').map(&:to_i)
 			number_parts_summed = number_parts.sum
@@ -20,9 +21,13 @@ class StringCalculator
 	end
 
 	def self.sanitize_string(numbers)
-		numbers.sub! "\n", ","
+		if numbers.end_with? "\n"
+			nil
+		else
+			numbers.sub! "\n", ","
+		end
 	end
 
 end
 
-StringCalculator.add("12\n2,3")
+StringCalculator.add("111,222,\n")
