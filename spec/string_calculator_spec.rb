@@ -29,5 +29,9 @@ describe StringCalculator do
 		it 'checks for delimiter v2' do
 			expect(StringCalculator.add("//-\n1-2-3-4")).to eq(10)
 		end
+
+		# it 'expects to raise error' do
+		# 	expect(StringCalculator.add("-1")).to raise_error(ArgumentError)
+		# end
   end
 end
