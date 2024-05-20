@@ -9,5 +9,9 @@ describe StringCalculator do
 		it 'accepts values as is for whole numbers' do 
 			expect(StringCalculator.add("12")).to eq(12)
 		end
+
+		it 'adds the elements of a comma seperated string of numbers' do
+			expect(StringCalculator.add("1,2")).to eq(3)
+		end
   end
 end
