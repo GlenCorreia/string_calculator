@@ -5,6 +5,10 @@ class StringCalculator
 
 		if numbers.strip == ""
 			output = 0
+		elsif numbers.include? ','
+			number_parts = numbers.split(',').map(&:to_i)
+			number_parts_summed = number_parts.sum
+			output = number_parts_summed
 		else
 			output = numbers.to_i
 		end
@@ -14,4 +18,4 @@ class StringCalculator
 
 end
 
-StringCalculator.add("10")
+StringCalculator.add("12,14")
