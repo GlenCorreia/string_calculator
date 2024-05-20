@@ -17,5 +17,9 @@ describe StringCalculator do
 		it 'ignores newline characters' do
 			expect(StringCalculator.add("1\n2,3")).to eq(6)
 		end
+
+		it 'invalidates input that has newline character at the end of the string'
+			expect(StringCalculator.add("1,\n")).to eq(nil)
+		end
   end
 end
