@@ -1,12 +1,10 @@
 class StringCalculator
-	attr_accessor :numbers
 
-	def initialize(numbers)
-		@numbers = numbers
-		return if @numbers.class != String
-		puts @numbers
+	def self.add(numbers)
+		puts 0
+		return 0
 	end
 
 end
 
-StringCalculator.new("1")
+StringCalculator.add("1")
