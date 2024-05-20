@@ -2,15 +2,21 @@ class StringCalculator
 
 	def self.add(numbers)
 		output = nil
-
+		delimiter = ','
+		
 		if numbers.strip == ""
 			output = 0
-		elsif numbers.include? ','
+		elsif numbers.include?(',') || numbers.include?("//")
 			if numbers.include? "\n"
-				numbers = sanitize_string(numbers) 
-				return if numbers == nil
+				if numbers[0,2] == "//"
+					delimiter = numbers[2]
+					numbers = numbers[4..-1]
+				else
+					numbers = sanitize_string(numbers) 
+					return if numbers == nil
+				end
 			end
-			number_parts = numbers.split(',').map(&:to_i)
+			number_parts = numbers.split(delimiter).map(&:to_i)
 			number_parts_summed = number_parts.sum
 			output = number_parts_summed
 		else
@@ -30,4 +36,4 @@ class StringCalculator
 
 end
 
-StringCalculator.add("111,222,\n")
+StringCalculator.add("//!\n23!23!23")
