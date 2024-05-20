@@ -13,5 +13,9 @@ describe StringCalculator do
 		it 'adds the elements of a comma seperated string of numbers' do
 			expect(StringCalculator.add("1,2")).to eq(3)
 		end
+
+		it 'ignores newline characters' do
+			expect(StringCalculator.add("1\n2,3")).to eq(6)
+		end
   end
 end
